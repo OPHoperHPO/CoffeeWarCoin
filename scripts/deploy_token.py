@@ -1,1 +1,5 @@
-accounts[0].deploy(Token, "Test Token", "TEST", 18, "1000 ether")
+from brownie import CoffeeCoin, accounts
+
+def main():
+    acct = accounts.load('deploy_account')
+    tx = acct.deploy(CoffeeCoin)

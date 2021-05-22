@@ -29,3 +29,11 @@ jobs:
     - name: Test with brownie
       run: |
         brownie test --coverage
+    - name: Setup deploy_account
+      run: |
+        echo $DEPLOY_ACCOUNT > ./account.json
+        brownie accounts import "deploy_account" ./account.json
+        rm ./account.json
+    - name: Run Deploy
+      run: |
+        brownie scripts/deploy_token.py --network ropsten
