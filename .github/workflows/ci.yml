@@ -29,5 +29,4 @@ jobs:
         brownie test --coverage
     - name: Run Deploy to local ganache
       run: |
-        echo $SECRET_JSON > vars.json
         brownie run scripts/deploy_token.py
