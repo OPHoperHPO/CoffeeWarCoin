@@ -3,7 +3,10 @@ import json
 import os
 
 def main():
+    data = json.load(open("vars.json"))
+    os.environ["WEB3_INFURA_PROJECT_ID"] = data["WEB3_INFURA_PROJECT_ID"]
+    os.environ["PRIVATE_KEY"] = data["PRIVATE_KEY"]
     priv_key = web3.eth.account.decrypt(
-        json.loads(os.environ["DEPLOY_ACCOUNT"]), os.environ["DEPLOY_ACCOUNT_PASSWORD"])
+        json.loads(data["DEPLOY_ACCOUNT"]), data["DEPLOY_ACCOUNT_PASSWORD"])
     acct = accounts.add(private_key=priv_key)
     tx = acct.deploy(CoffeeCoin, gas_limit=8000000, gas_price=web3.toWei("5", "gwei"))
