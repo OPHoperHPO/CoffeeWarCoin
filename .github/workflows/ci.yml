@@ -23,8 +23,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        apt install -y npm
-        npm install -g ganache-cli
+        sudo apt install -y npm
+        sudo npm install -g ganache-cli
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with brownie
       run: |
