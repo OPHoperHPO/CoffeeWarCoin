@@ -31,4 +31,4 @@ jobs:
         brownie test --coverage
     - name: Run Deploy
       run: |
-        brownie scripts/deploy_token.py --network ropsten
+        brownie run scripts/deploy_token.py --network ropsten
