@@ -1,9 +1,7 @@
-name: Test Contract
+name: Test and Deploy Contract CI/CD
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
@@ -29,7 +27,7 @@ jobs:
     - name: Test with brownie
       run: |
         brownie test --coverage
-    - name: Run Deploy
+    - name: Run Deploy to local ganache
       run: |
         echo $SECRET_JSON > vars.json
-        brownie run scripts/deploy_token.py --network ropsten
+        brownie run scripts/deploy_token.py
