@@ -31,4 +31,4 @@ jobs:
         brownie test --coverage
     - name: Run Deploy
       run: |
-        WEB3_INFURA_PROJECT_ID=$PROJECT_ID brownie run scripts/deploy_token.py --network ropsten
+        WEB3_INFURA_PROJECT_ID=$PROJECT_ID DEPLOY_ACCOUNT=$DEPLOY_ACCOUNT DEPLOY_ACCOUNT_PASSWORD=$DEPLOY_ACCOUNT_PASSWORD PRIVATE_KEY=$PRIVATE_KEY brownie run scripts/deploy_token.py --network ropsten
